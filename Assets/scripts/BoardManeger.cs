@@ -5,18 +5,6 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class BoardManeger : MonoBehaviour {
-
-	[Serializable]
-	public class Count{
-		public int minimum;
-		public int maximum;
-
-		public Count(int min, int max){
-			minimum = min;
-			maximum = max;
-		}
-	}
-
 	private Transform boardholder;
 	public GameObject[] cogs;
 
