@@ -20,7 +20,12 @@ public class CogSpinner : MonoBehaviour {
 
 	void OnCollisionStay2D(Collision2D other){
 		Cog otherCog = other.transform.GetComponent<Cog> ();
-
+		if (!cog.touchingCogs.ContainsKey (otherCog.cogId)) {
+			cog.touchingCogs.Add (otherCog.cogId, otherCog.Speed);
+		} 
+		else {
+			cog.touchingCogs [otherCog.cogId] = otherCog.Speed;
+		}
 	
 	}
 

@@ -5,6 +5,7 @@ using System.Linq;
 
 public class Cog : MonoBehaviour {
 
+	public int numberOfTOuchingCogs;
 
 	public int InitialSpeed = 0;
 
@@ -29,29 +30,38 @@ public class Cog : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		numberOfTOuchingCogs = touchingCogs.Count ();
+
+		Speed = InitialSpeed;
+
+		if (numberOfTOuchingCogs == 1) {
 
 
-		var speedPos = touchingCogs.Any (x => x.Value > 0);
-		var speedNeg = touchingCogs.Any (x => x.Value < 0);
+			int touchingCogSpeed = touchingCogs.First ().Value;
 
-		if (speedPos && speedNeg) {
-			Speed = 0;
-		} 
-		else {
-
-
-			foreach (KeyValuePair<int, int> pair in touchingCogs) {
-				if (pair.Value != 0) {
-					Speed = -pair.Value;
-					break;
-				}
-			
-			}
-
-			if (!touchingCogs.Any ()) {
+			if (touchingCogSpeed == Speed) {
 				Speed = InitialSpeed;
+			
+			} else {
+				Speed = touchingCogSpeed != 0 ? -touchingCogSpeed : InitialSpeed;
 			}
-			//Speed = InitialSpeed;
+		}
+
+		if (numberOfTOuchingCogs > 1) {
+			var speedPos = touchingCogs.Any (x => x.Value > 0);
+			var speedNeg = touchingCogs.Any (x => x.Value < 0);
+
+			if (speedPos && speedNeg) {
+				Speed = 0;
+			} else {
+				foreach (KeyValuePair<int, int> pair in touchingCogs) {
+					if (pair.Value != 0) {
+						Speed = -pair.Value;
+						break;
+					}
+
+				}
+			}
 
 		}
 

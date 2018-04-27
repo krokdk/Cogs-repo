@@ -18,7 +18,7 @@ public class BoardManeger : MonoBehaviour {
 	void BoardSetup(){
 		boardholder = new GameObject ("GameBoard").transform;
 
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < 4; i++){
 			GameObject gameObjectToInstatiate = cogs[0];
 
 			GameObject instance = Instantiate (gameObjectToInstatiate, new Vector3 (i,i,0), Quaternion.identity) as GameObject;
