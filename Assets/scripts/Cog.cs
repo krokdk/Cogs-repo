@@ -70,4 +70,32 @@ public class Cog : MonoBehaviour {
 
 		}
 
+	void OnCollisionEnter2D(Collision2D other){
+		Cog otherCog = other.transform.GetComponent<Cog>();
+
+		if (!touchingCogs.ContainsKey (otherCog.cogId)) {
+			touchingCogs.Add (otherCog.cogId, otherCog.Speed);
+		} 
+		else {
+			touchingCogs [otherCog.cogId] = otherCog.Speed;
+		}
+	}
+
+	void OnCollisionStay2D(Collision2D other){
+		Cog otherCog = other.transform.GetComponent<Cog> ();
+		if (!touchingCogs.ContainsKey (otherCog.cogId)) {
+			touchingCogs.Add (otherCog.cogId, otherCog.Speed);
+		} 
+		else {
+			touchingCogs [otherCog.cogId] = otherCog.Speed;
+		}
+
+	}
+
+	private void OnCollisionExit2D(Collision2D other){
+		Cog otherCog = other.transform.GetComponent<Cog>();
+		touchingCogs.Remove (otherCog.cogId);
+		otherCog.touchingCogs.Remove (cogId);
+	}
+
 }

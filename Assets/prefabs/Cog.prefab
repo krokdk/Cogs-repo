@@ -173,7 +173,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842711068905566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d2ba35f92815450199e04727f38bd8e, type: 3}
   m_Name: 
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c386c2da3608147ab803871a3a94254e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfTOuchingCogs: 0
   InitialSpeed: 0
   cogId: 1
   Speed: 0

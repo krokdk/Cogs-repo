@@ -53,7 +53,6 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\BoardManeger.cs" />
      <Compile Include="Assets\scripts\Cog.cs" />
-     <Compile Include="Assets\scripts\CogSpinner.cs" />
      <Compile Include="Assets\scripts\GameManeger.cs" />
      <Compile Include="Assets\scripts\Loader.cs" />
      <Compile Include="Assets\scripts\MouseInput.cs" />
